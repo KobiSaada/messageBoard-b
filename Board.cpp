@@ -70,9 +70,11 @@ string Board::read( u_int h,u_int v,Direction d,u_int   n){//read a message from
       case Direction::Horizontal:
          
      for(uint i =v;i<v+n;i++){
-        if (board[h].count(i) != 0 && board.count(h) != 0 ){//existing something to read in map if not add and read '_'
+        //count func- Count elements with a specific key Searches the container for elements with a key equivalent to k and returns the number of matches Because all elements in a map container are unique, the function can only return 1 (if the element is found) or zero (otherwise).
+
+        if (board[h].count(i) != 0 && board.count(h) != 0 ){//check if existing something to read in map if not read '_'
       ans+=this->board[h][i];
-      //v++;
+ 
         }
         else{
            ans+='_';
@@ -83,7 +85,7 @@ string Board::read( u_int h,u_int v,Direction d,u_int   n){//read a message from
 
    case Direction::Vertical:
       for(uint  i =h;i<h+n;i++){
-      if ( board[i].count(v) != 0&&board.count(i) != 0){//existing something to read in map if not add and read '_'
+      if ( board[i].count(v) != 0&&board.count(i) != 0){//check if existing something to read in map if not read '_'
       ans+=this->board[i][v];}
       else
       {
